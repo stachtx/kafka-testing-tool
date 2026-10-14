@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: kafka-testing-tool
+  kafka:
+    # Connection and security settings come from the environment. The localhost bootstrap/registry values
+    # below are intentional DEV defaults (no real endpoints or secrets are committed). See README.md.
+    # Additional SSL/SASL/registry-auth settings are supplied through Spring's relaxed binding of
+    # SPRING_KAFKA_* environment variables (e.g. SPRING_KAFKA_SECURITY_PROTOCOL,
+    # SPRING_KAFKA_PROPERTIES_SASL_MECHANISM, SPRING_KAFKA_PROPERTIES_SASL_JAAS_CONFIG,
+    # SPRING_KAFKA_PROPERTIES_BASIC_AUTH_USER_INFO, SPRING_KAFKA_SSL_TRUST_STORE_LOCATION).
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    properties:
+      schema.registry.url: ${SCHEMA_REGISTRY_URL:http://localhost:8081}
+
+server:
+  # The tool has no authentication: bind loopback only unless SERVER_ADDRESS is set consciously (README "Security model").
+  address: ${SERVER_ADDRESS:127.0.0.1}
+
+kafkatester:
+  consumer:
+    # Operator-configurable cap for EARLIEST sessions (audit G)
+    earliest-cap: ${KAFKATESTER_CONSUMER_EARLIEST_CAP:1000}
+    # Session limits (code review W3)
+    max-sessions: ${KAFKATESTER_CONSUMER_MAX_SESSIONS:10}
+    idle-ttl: ${KAFKATESTER_CONSUMER_IDLE_TTL:30m}
+    max-payload-bytes: ${KAFKATESTER_CONSUMER_MAX_PAYLOAD_BYTES:65536}
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+    enabled: ${SPRINGDOC_ENABLED:true}
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: ${SPRINGDOC_ENABLED:true}

@@ -22,3 +22,28 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+
+# Gradle wrapper jar must be committed
+!gradle/wrapper/gradle-wrapper.jar
+
+# Build output
+build/
+.gradle/
+out/
+
+# IDE
+.idea/
+*.iml
+
+# Maister workflow files
+.maister/
+docs/
+
+# Playwright MCP session output
+.playwright-mcp/
+
+# Local environment / secrets
+.env
+*.env.local
+application-private.yml
+config/

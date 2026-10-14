@@ -1,0 +1,1 @@
+{"type":"record","name":"Solo","namespace":"team.c","defaultTopic":"legacy.topic","fields":[{"name":"z","type":"string"}]}

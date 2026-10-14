@@ -1,0 +1,8 @@
+# Profile "local": Kafka + Schema Registry started by docker-compose.yml in the project root (docker compose up -d).
+# Activate with --spring.profiles.active=local (IntelliJ: Active profiles = local) or SPRING_PROFILES_ACTIVE=local.
+# Fixed values on purpose (no environment variable needed); contains no secrets.
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    properties:
+      schema.registry.url: http://localhost:8081

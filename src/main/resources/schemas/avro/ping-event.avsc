@@ -1,0 +1,13 @@
+{
+  "type": "record",
+  "name": "PingEvent",
+  "namespace": "com.acme.kafkatester.sample",
+  "doc": "Sample ping event used to exercise the tool end to end.",
+  "fields": [
+    {"name": "id", "type": "string", "doc": "Unique ping identifier"},
+    {"name": "message", "type": "string", "doc": "Free text message"},
+    {"name": "sequence", "type": "long", "doc": "Monotonic sequence number"},
+    {"name": "sentAt", "type": "long", "doc": "Epoch milliseconds when the ping was created"},
+    {"name": "note", "type": ["null", "string"], "default": null, "doc": "Optional note (nullable)"}
+  ]
+}

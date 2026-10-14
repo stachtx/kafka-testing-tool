@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package kafkatester.sample;
+
+option java_package = "com.acme.kafkatester.sample";
+
+// Sample ping event used to exercise the tool end to end.
+// The suggested topic is declared in schemas/default-topics.properties, not here, so no
+// tool-private option or descriptor.proto dependency ends up in the registered schema.
+message PingEvent {
+  string id = 1;
+  string message = 2;
+  int64 sequence = 3;
+  int64 sent_at = 4;
+  // Optional note (nullable: presence is tracked)
+  optional string note = 5;
+}

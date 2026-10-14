@@ -1,0 +1,1 @@
+{"type":"record","name":"Dup","namespace":"team.b","fields":[{"name":"y","type":"string"}]}
